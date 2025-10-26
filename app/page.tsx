@@ -82,7 +82,7 @@ export default function Home() {
             Why <span className="text-primary">CROWDIA</span>?
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            We're not just another event app. We're building a community-driven
+            We&apos;re not just another event app. We&apos;re building a community-driven
             platform that rewards you for living your best life.
           </p>
 
@@ -97,7 +97,7 @@ export default function Home() {
               </h3>
               <p className="text-muted-foreground">
                 Find events happening right now around you. No more FOMO—see
-                what's live, trending, and nearby in real time.
+                what&apos;s live, trending, and nearby in real time.
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export default function Home() {
               </h3>
               <p className="text-muted-foreground">
                 Buy tickets instantly with our native token system. Seamless
-                crypto-to-fiat conversion—you won't even notice it's Web3.
+                crypto-to-fiat conversion—you won&apos;t even notice it&apos;s Web3.
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
             How It <span className="text-primary">Works</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Getting started is simple. Here's how CROWDIA transforms your social
+            Getting started is simple. Here&apos;s how CROWDIA transforms your social
             experience.
           </p>
 
@@ -195,7 +195,7 @@ export default function Home() {
                 Discover
               </h3>
               <p className="text-muted-foreground">
-                Open the app and see what's happening around you right now. Filter
+                Open the app and see what&apos;s happening around you right now. Filter
                 by vibe, venue, or friends.
               </p>
             </div>
@@ -236,7 +236,7 @@ export default function Home() {
             Join the <span className="text-primary">Movement</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            We're building more than an app—we're creating a new way to
+            We&apos;re building more than an app—we&apos;re creating a new way to
             experience your city. Starting with Palermo, expanding everywhere.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">

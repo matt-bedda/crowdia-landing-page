@@ -55,7 +55,7 @@ export function WaitlistForm() {
           ) : status === "success" ? (
             <>
               <Sparkles className="w-5 h-5" />
-              You're In!
+              You&apos;re In!
             </>
           ) : (
             <>

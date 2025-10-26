@@ -17,6 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://crowdia.app'),
   title: "CROWDIA - Discover Your City's Social Scene",
   description:
     "Transform the way you discover and experience events in your city. CROWDIA is your social concierge for nightlife, entertainment, and networking. Join the waitlist now.",
