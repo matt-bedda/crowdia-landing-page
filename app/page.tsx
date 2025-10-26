@@ -49,7 +49,7 @@ export default function Home() {
           {/* Main Heading */}
           <h2 className="font-montserrat text-5xl md:text-7xl lg:text-8xl font-bold mb-6 mt-20">
             <span className="text-white">Discover</span>{" "}
-            <span className="text-primary">Your City</span>
+            <span className="text-primary whitespace-nowrap">Your City</span>
           </h2>
 
           {/* Subheading */}
