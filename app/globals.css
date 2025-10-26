@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors (not used - dark mode only) */
+    --background: 0 0% 100%;           /* white */
+    --foreground: 0 0% 3.9%;           /* near black */
+    --card: 0 0% 100%;                 /* white */
+    --card-foreground: 0 0% 3.9%;      /* near black */
+    --popover: 0 0% 100%;              /* white */
+    --popover-foreground: 0 0% 3.9%;   /* near black */
+    --primary: 0 0% 9%;                /* dark gray */
+    --primary-foreground: 0 0% 98%;    /* off white */
+    --secondary: 0 0% 96.1%;           /* light gray */
+    --secondary-foreground: 0 0% 9%;   /* dark gray */
+    --muted: 0 0% 96.1%;               /* light gray */
+    --muted-foreground: 0 0% 45.1%;    /* medium gray */
+    --accent: 0 0% 96.1%;              /* light gray */
+    --accent-foreground: 0 0% 9%;      /* dark gray */
+    --destructive: 0 84.2% 60.2%;      /* red */
+    --destructive-foreground: 0 0% 98%; /* off white */
+    --border: 0 0% 89.8%;              /* light gray */
+    --input: 0 0% 89.8%;               /* light gray */
+    --ring: 0 0% 3.9%;                 /* near black */
+    --chart-1: 12 76% 61%;             /* orange */
+    --chart-2: 173 58% 39%;            /* teal */
+    --chart-3: 197 37% 24%;            /* dark blue */
+    --chart-4: 43 74% 66%;             /* yellow */
+    --chart-5: 27 87% 67%;             /* coral */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode colors - CROWDIA theme (Magenta #FF007F) */
+    --background: 0 0% 0%;             /* pure black */
+    --foreground: 0 0% 98%;            /* white */
+    --card: 0 0% 3.9%;                 /* charcoal dark */
+    --card-foreground: 0 0% 98%;       /* white */
+    --popover: 0 0% 5%;                /* near black */
+    --popover-foreground: 0 0% 98%;    /* white */
+    --primary: 330 100% 50%;           /* magenta #FF007F */
+    --primary-foreground: 0 0% 100%;   /* white */
+    --secondary: 0 0% 18%;             /* charcoal medium */
+    --secondary-foreground: 0 0% 98%;  /* white */
+    --muted: 0 0% 12%;                 /* dark charcoal */
+    --muted-foreground: 0 0% 63.9%;    /* gray */
+    --accent: 330 100% 50%;            /* magenta #FF007F */
+    --accent-foreground: 0 0% 100%;    /* white */
+    --destructive: 0 62.8% 30.6%;      /* dark red */
+    --destructive-foreground: 0 0% 98%; /* white */
+    --border: 330 100% 50%;            /* magenta #FF007F */
+    --input: 0 0% 14.9%;               /* charcoal medium */
+    --ring: 330 100% 50%;              /* magenta #FF007F */
+    --chart-1: 330 100% 50%;           /* magenta */
+    --chart-2: 330 80% 60%;            /* light magenta */
+    --chart-3: 330 90% 40%;            /* dark magenta */
+    --chart-4: 0 0% 50%;               /* gray */
+    --chart-5: 0 0% 70%;               /* light gray */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-charcoal-700;
+  }
+  body {
+    @apply bg-charcoal-900 text-white;
+  }
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-charcoal-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-magenta-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-magenta-400;
+}
