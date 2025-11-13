@@ -61,7 +61,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <SparkleButton variant="primary" size="lg">
               <Sparkles className="w-5 h-5" />
-              Join the Waitlist
+              Join the Launch - unisciti al lancio
             </SparkleButton>
             <SparkleButton variant="secondary" size="lg">
               Learn More
@@ -124,7 +124,7 @@ export default function Home() {
                 Gamified Engagement
               </h3>
               <p className="text-muted-foreground">
-                Earn tokens and rewards for attending events, sharing
+                Earn points and rewards for attending events, sharing
                 experiences, and bringing friends. Your social life, rewarded.
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function Home() {
                 Instant Everything
               </h3>
               <p className="text-muted-foreground">
-                Buy tickets instantly with our native token system. Seamless
+                Buy tickets instantly with our in-app payment system. Seamless
                 crypto-to-fiat conversion—you won&apos;t even notice it&apos;s Web3.
               </p>
             </div>
@@ -221,7 +221,7 @@ export default function Home() {
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">Earn</h3>
               <p className="text-muted-foreground">
-                Get rewarded with tokens for attending, sharing, and inviting
+                Get rewarded with points for attending, sharing, and inviting
                 friends. Level up your social game.
               </p>
             </div>
@@ -289,7 +289,7 @@ export default function Home() {
           </p>
           <div className="pt-4">
             <SparkleButton variant="primary" size="lg">
-              Join Waitlist
+              Join the Launch - unisciti al lancio
             </SparkleButton>
           </div>
           <div className="pt-8 text-sm text-gray-500">
