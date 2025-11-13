@@ -54,7 +54,7 @@ export function VideoHero({ children }: { children?: React.ReactNode }) {
       </video>
 
       {/* Dark Overlay - lighter on mobile */}
-      <div className="absolute inset-0 bg-black/60 md:bg-black/70 lg:bg-black/80 z-20" />
+      <div className="absolute inset-0 bg-black/45 md:bg-black/70 lg:bg-black/80 z-20" />
 
       {/* Content Overlay */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center px-4">
