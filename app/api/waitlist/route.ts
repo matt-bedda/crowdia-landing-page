@@ -1,0 +1,63 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { supabase } from '@/lib/supabase';
+import { z } from 'zod';
+
+const waitlistSchema = z.object({
+  email: z.string().email('Please enter a valid email address'),
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+});
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    
+    // Validate the request body
+    const validatedData = waitlistSchema.parse(body);
+    
+    // Insert into Supabase
+    const { data, error } = await supabase
+      .from('waitlist')
+      .insert([
+        {
+          email: validatedData.email,
+          name: validatedData.name,
+          source: 'landing-page',
+        },
+      ])
+      .select();
+
+    if (error) {
+      // Check if it's a duplicate email error
+      if (error.code === '23505') {
+        return NextResponse.json(
+          { error: 'This email is already on the waitlist!' },
+          { status: 400 }
+        );
+      }
+      
+      console.error('Supabase error:', error);
+      return NextResponse.json(
+        { error: 'Failed to join waitlist. Please try again.' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json(
+      { success: true, data },
+      { status: 201 }
+    );
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Invalid form data', details: error.issues },
+        { status: 400 }
+      );
+    }
+
+    console.error('Unexpected error:', error);
+    return NextResponse.json(
+      { error: 'An unexpected error occurred' },
+      { status: 500 }
+    );
+  }
+}

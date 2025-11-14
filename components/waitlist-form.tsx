@@ -26,6 +26,7 @@ type FormData = z.infer<typeof formSchema>;
 export function WaitlistForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -37,13 +38,23 @@ export function WaitlistForm() {
 
   async function onSubmit(values: FormData) {
     setIsSubmitting(true);
+    setError(null);
 
     try {
-      // TODO: Replace with actual API endpoint
-      // For now, just simulate a delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-      console.log("Form submitted:", values);
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || 'Failed to join waitlist. Please try again.');
+        return;
+      }
 
       setIsSuccess(true);
       form.reset();
@@ -52,6 +63,7 @@ export function WaitlistForm() {
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
+      setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -115,6 +127,12 @@ export function WaitlistForm() {
               </>
             )}
           </Button>
+
+          {error && (
+            <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-center">
+              <p className="text-red-400 font-semibold">{error}</p>
+            </div>
+          )}
 
           {isSuccess && (
             <div className="p-4 rounded-lg bg-primary/10 border border-primary/30 text-center">
