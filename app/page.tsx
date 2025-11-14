@@ -69,9 +69,6 @@ export default function Home() {
               <Sparkles className="w-5 h-5" />
               Join the Launch - unisciti al lancio
             </SparkleButton>
-            <SparkleButton variant="secondary" size="lg" onClick={scrollToWaitlist}>
-              Learn More
-            </SparkleButton>
           </div>
 
           {/* Launch Info */}
