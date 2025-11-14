@@ -1,84 +1,133 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { SparkleButton } from "./ui/sparkle-button";
-import { Mail, Sparkles } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { Sparkles, Loader2 } from "lucide-react";
+
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export function WaitlistForm() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("loading");
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      name: "",
+    },
+  });
 
-    // TODO: Integrate with your backend/email service
-    // Example: await fetch('/api/waitlist', { method: 'POST', body: JSON.stringify({ email }) })
+  async function onSubmit(values: FormData) {
+    setIsSubmitting(true);
 
-    // Simulated API call
-    setTimeout(() => {
-      setStatus("success");
-      setMessage("You're on the list! We'll be in touch soon.");
-      setEmail("");
-    }, 1000);
-  };
+    try {
+      // TODO: Replace with actual API endpoint
+      // For now, just simulate a delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      console.log("Form submitted:", values);
+
+      setIsSuccess(true);
+      form.reset();
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <div className="w-full max-w-md mx-auto">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="relative">
-          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-            className="w-full pl-12 pr-4 py-4 bg-card border-2 border-primary/30 rounded-full text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all"
-            disabled={status === "loading" || status === "success"}
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white">Name</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Your name"
+                    className="bg-charcoal-800 border-primary/30 text-white placeholder:text-gray-500 focus:border-primary"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <SparkleButton
-          type="submit"
-          variant="primary"
-          size="lg"
-          className="w-full"
-          disabled={status === "loading" || status === "success"}
-        >
-          {status === "loading" ? (
-            <>
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              Joining...
-            </>
-          ) : status === "success" ? (
-            <>
-              <Sparkles className="w-5 h-5" />
-              You&apos;re In!
-            </>
-          ) : (
-            <>
-              <Sparkles className="w-5 h-5" />
-              Join the Waitlist
-            </>
-          )}
-        </SparkleButton>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white">Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="bg-charcoal-800 border-primary/30 text-white placeholder:text-gray-500 focus:border-primary"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {message && (
-          <p
-            className={`text-center text-sm ${
-              status === "success" ? "text-primary/80" : "text-destructive"
-            }`}
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)]"
           >
-            {message}
-          </p>
-        )}
-      </form>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                Joining...
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-5 h-5 mr-2" />
+                Join the Waitlist
+              </>
+            )}
+          </Button>
 
-      <p className="text-xs text-gray-500 text-center mt-4">
-        We respect your privacy. Unsubscribe at any time.
-      </p>
+          {isSuccess && (
+            <div className="p-4 rounded-lg bg-primary/10 border border-primary/30 text-center">
+              <p className="text-primary font-semibold">
+                🎉 Success! You&apos;re on the waitlist!
+              </p>
+              <p className="text-sm text-gray-400 mt-1">
+                We&apos;ll notify you when we launch.
+              </p>
+            </div>
+          )}
+        </form>
+      </Form>
     </div>
   );
 }
