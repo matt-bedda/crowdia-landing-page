@@ -67,7 +67,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <SparkleButton variant="primary" size="lg" onClick={scrollToWaitlist}>
               <Sparkles className="w-5 h-5" />
-              Join the Launch - unisciti al lancio
+              Join the Launch
             </SparkleButton>
           </div>
 
