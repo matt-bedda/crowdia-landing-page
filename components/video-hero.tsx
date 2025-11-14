@@ -53,8 +53,8 @@ export function VideoHero({ children }: { children?: React.ReactNode }) {
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark Overlay - lighter on mobile */}
-      <div className="absolute inset-0 bg-black/45 md:bg-black/70 lg:bg-black/80 z-20" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/65 md:bg-black/70 lg:bg-black/80 z-20" />
 
       {/* Content Overlay */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center px-4">
