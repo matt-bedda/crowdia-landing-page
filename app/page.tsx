@@ -44,7 +44,7 @@ export default function Home() {
 
             <span className="text-white relative inline-block">
               {/* Text with layered glow */}
-              <span className="relative z-10 drop-shadow-[0_0_8px_hsl(var(--primary)/0.4)] group-hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.7)] group-hover:scale-110 transition-all duration-500">
+              <span className="relative z-10 drop-shadow-[0_0_8px_hsl(var(--primary)/0.4)] group-hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.7)] group-hover:scale-110 transition-all duration-500" translate="no">
                 CROWDIA
               </span>
             </span>
@@ -60,7 +60,7 @@ export default function Home() {
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-3xl mx-auto">
-            <span className="text-primary font-bold">CROWDIA</span> is your concierge for social life, entertainment, and real connections. Transform the way you experience real-life in your city.
+            <span className="text-primary font-bold" translate="no">CROWDIA</span> is your concierge for social life, entertainment, and real connections. Transform the way you experience real-life in your city.
           </p>
 
           {/* CTA Buttons */}
@@ -82,7 +82,7 @@ export default function Home() {
       <section className="py-20 px-4 bg-charcoal-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold text-center mb-4">
-            Why <span className="text-primary">CROWDIA</span>?
+            Why <span className="text-primary" translate="no">CROWDIA</span>?
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
             We&apos;re not just another event app. We&apos;re building a community-driven
@@ -184,7 +184,7 @@ export default function Home() {
             How It <span className="text-primary">Works</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Getting started is simple. Here&apos;s how CROWDIA transforms your social
+            Getting started is simple. Here&apos;s how <span translate="no">CROWDIA</span> transforms your social
             experience.
           </p>
 
@@ -287,12 +287,12 @@ export default function Home() {
             Ready to Transform Your City Experience?
           </h3>
           <p className="text-muted-foreground mb-8">
-            Be among the first to experience CROWDIA. Sign up for early access
+            Be among the first to experience <span translate="no">CROWDIA</span>. Sign up for early access
             and exclusive launch perks.
           </p>
           <WaitlistForm />
           <div className="pt-8 text-sm text-gray-500">
-            <p>&copy; 2025 CROWDIA. All rights reserved.</p>
+            <p>&copy; 2025 <span translate="no">CROWDIA</span>. All rights reserved.</p>
           </div>
         </div>
       </footer>
