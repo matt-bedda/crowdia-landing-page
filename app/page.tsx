@@ -4,13 +4,58 @@ import { VideoHero } from "@/components/video-hero";
 import { SparkleButton } from "@/components/ui/sparkle-button";
 import { WaitlistForm } from "@/components/waitlist-form";
 import Image from "next/image";
-import { MapPin, Users, Sparkles, Award, TrendingUp, Zap } from "lucide-react";
+import { MapPin, Users, Sparkles, Award, TrendingUp, Zap, Heart } from "lucide-react";
 
 export default function Home() {
   const scrollToWaitlist = () => {
     const waitlist = document.querySelector('footer');
     waitlist?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const features = [
+    {
+      icon: MapPin,
+      title: "Real-Time Discovery",
+      description: "Find events happening right now around you. No more FOMO—see what's live, trending, and nearby in real time.",
+      hidden: false
+    },
+    {
+      icon: Users,
+      title: "Social by Design",
+      description: "Connect with friends, discover mutual interests, and build your social network through shared experiences.",
+      hidden: false
+    },
+    {
+      icon: Heart,
+      title: "Real-Life Connections",
+      description: "We're building a social app that rewards you for living your best life. Connect with your community, build real relationships, and make memories offline.",
+      hidden: false
+    },
+    {
+      icon: Sparkles,
+      title: "Gamified Engagement",
+      description: "Earn points and rewards for attending events, sharing experiences, and bringing friends. Your social life, rewarded.",
+      hidden: false
+    },
+    {
+      icon: TrendingUp,
+      title: "Organizer Tools",
+      description: "Integrated marketing tools, direct access to influencers, and direct access to your audience. Promote your events effortlessly.",
+      hidden: false
+    },
+    {
+      icon: Award,
+      title: "Influencer Hub",
+      description: "For influencers and PRs: monetize your reach, promote events, and grow your following with our verified membership system.",
+      hidden: false
+    },
+    {
+      icon: Zap,
+      title: "Instant Everything",
+      description: "Buy tickets instantly with our in-app payment system. Seamless crypto-to-fiat conversion—you won't even notice it's Web3.",
+      hidden: true
+    },
+  ];
 
   return (
     <main className="min-h-screen">
@@ -32,6 +77,7 @@ export default function Home() {
                 fill
                 className="object-contain drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)] group-hover:drop-shadow-[0_0_25px_hsl(var(--primary)/0.9)]"
                 priority
+                sizes="(max-width: 768px) 40px, 48px"
               />
             </div>
           </div>
@@ -90,89 +136,19 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                <MapPin className="w-7 h-7 text-primary" />
+            {features.filter(f => !f.hidden).map((feature, index) => (
+              <div key={index} className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
+                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
+                  <feature.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-montserrat text-xl font-bold mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Real-Time Discovery
-              </h3>
-              <p className="text-muted-foreground">
-                Find events happening right now around you. No more FOMO—see
-                what&apos;s live, trending, and nearby in real time.
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                <Users className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Social by Design
-              </h3>
-              <p className="text-muted-foreground">
-                Connect with friends, discover mutual interests, and build your
-                social network through shared experiences.
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                <Sparkles className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Gamified Engagement
-              </h3>
-              <p className="text-muted-foreground">
-                Earn points and rewards for attending events, sharing
-                experiences, and bringing friends. Your social life, rewarded.
-              </p>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                <Award className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Influencer Hub
-              </h3>
-              <p className="text-muted-foreground">
-                For influencers and PRs: monetize your reach, promote events,
-                and grow your following with our verified membership system.
-              </p>
-            </div>
-
-            {/* Feature 5 */}
-            <div className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                <TrendingUp className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Organizer Tools
-              </h3>
-              <p className="text-muted-foreground">
-                Lower fees, better tools, direct access to your audience.
-                Promote and sell tickets effortlessly with integrated marketing.
-              </p>
-            </div>
-
-            {/* Feature 6 */}
-            <div className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                <Zap className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Instant Everything
-              </h3>
-              <p className="text-muted-foreground">
-                Buy tickets instantly with our in-app payment system. Seamless
-                crypto-to-fiat conversion—you won&apos;t even notice it&apos;s Web3.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
