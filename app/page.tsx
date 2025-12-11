@@ -99,28 +99,29 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Heading */}
-          <h2 className="font-montserrat text-5xl md:text-7xl lg:text-8xl font-bold mb-6 mt-20">
-            <span className="text-white">Discover</span>{" "}
-            <span className="text-primary whitespace-nowrap">Your City</span>
+          <h2 className="font-montserrat text-5xl md:text-7xl lg:text-8xl font-bold mb-6 mt-20 uppercase tracking-wider">
+            <span className="text-white">PALERMO.</span>{" "}
+            <span className="text-primary">ORA.</span>
           </h2>
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-3xl mx-auto">
-            <span className="text-primary font-bold" translate="no">CROWDIA</span> is your concierge for social life, entertainment, and real connections. Transform the way you experience real-life in your city.
+            L&apos;unica piattaforma che premia la tua vita sociale. Non guardare gli eventi, vivili.
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - 3 Choice Options */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <SparkleButton variant="primary" size="lg" onClick={scrollToWaitlist}>
               <Sparkles className="w-5 h-5" />
-              Join the Launch
+              Cosa fare stasera?
+            </SparkleButton>
+            <SparkleButton variant="secondary" size="lg" onClick={scrollToWaitlist}>
+              Organizzo Eventi
+            </SparkleButton>
+            <SparkleButton variant="secondary" size="lg" onClick={scrollToWaitlist}>
+              Voglio collaborare
             </SparkleButton>
           </div>
-
-          {/* Launch Info */}
-          <p className="text-sm md:text-base text-muted-foreground mt-4">
-            Launching soon in <span className="text-primary/80">Palermo</span>
-          </p>
         </div>
       </VideoHero>
 
