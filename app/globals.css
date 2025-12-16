@@ -4,31 +4,31 @@
 
 @layer base {
   :root {
-    /* Light mode colors (not used - dark mode only) */
+    /* Light mode colors - CROWDIA theme (Magenta #FF007F on white) */
     --background: 0 0% 100%;           /* white */
-    --foreground: 0 0% 3.9%;           /* near black */
-    --card: 0 0% 100%;                 /* white */
-    --card-foreground: 0 0% 3.9%;      /* near black */
+    --foreground: 0 0% 18%;            /* charcoal #2E2E2E */
+    --card: 0 0% 98%;                  /* off-white */
+    --card-foreground: 0 0% 18%;       /* charcoal */
     --popover: 0 0% 100%;              /* white */
-    --popover-foreground: 0 0% 3.9%;   /* near black */
-    --primary: 0 0% 9%;                /* dark gray */
-    --primary-foreground: 0 0% 98%;    /* off white */
-    --secondary: 0 0% 96.1%;           /* light gray */
-    --secondary-foreground: 0 0% 9%;   /* dark gray */
-    --muted: 0 0% 96.1%;               /* light gray */
-    --muted-foreground: 0 0% 45.1%;    /* medium gray */
-    --accent: 0 0% 96.1%;              /* light gray */
-    --accent-foreground: 0 0% 9%;      /* dark gray */
+    --popover-foreground: 0 0% 18%;    /* charcoal */
+    --primary: 330 100% 50%;           /* magenta #FF007F */
+    --primary-foreground: 0 0% 100%;   /* white */
+    --secondary: 0 0% 96%;             /* light gray */
+    --secondary-foreground: 0 0% 18%;  /* charcoal */
+    --muted: 0 0% 96%;                 /* light gray */
+    --muted-foreground: 0 0% 45%;      /* medium gray */
+    --accent: 330 100% 50%;            /* magenta #FF007F */
+    --accent-foreground: 0 0% 100%;    /* white */
     --destructive: 0 84.2% 60.2%;      /* red */
     --destructive-foreground: 0 0% 98%; /* off white */
-    --border: 0 0% 89.8%;              /* light gray */
-    --input: 0 0% 89.8%;               /* light gray */
-    --ring: 0 0% 3.9%;                 /* near black */
-    --chart-1: 12 76% 61%;             /* orange */
-    --chart-2: 173 58% 39%;            /* teal */
-    --chart-3: 197 37% 24%;            /* dark blue */
-    --chart-4: 43 74% 66%;             /* yellow */
-    --chart-5: 27 87% 67%;             /* coral */
+    --border: 0 0% 90%;                /* light gray */
+    --input: 0 0% 90%;                 /* light gray */
+    --ring: 330 100% 50%;              /* magenta #FF007F */
+    --chart-1: 330 100% 50%;           /* magenta */
+    --chart-2: 330 80% 60%;            /* light magenta */
+    --chart-3: 330 90% 40%;            /* dark magenta */
+    --chart-4: 0 0% 50%;               /* gray */
+    --chart-5: 0 0% 70%;               /* light gray */
     --radius: 0.5rem;
   }
 
@@ -63,26 +63,40 @@
 
 @layer base {
   * {
-    @apply border-charcoal-700;
+    @apply border-border;
   }
   body {
-    @apply bg-charcoal-900 text-white;
+    @apply bg-background text-foreground;
   }
 }
 
-/* Custom scrollbar for dark mode */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-charcoal-800;
+  @apply bg-muted;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-magenta-500 rounded-full;
+  @apply bg-primary rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-magenta-400;
+  @apply bg-primary/80;
+}
+
+/* Glow pulse animation for buttons */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }

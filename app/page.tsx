@@ -2,14 +2,14 @@
 
 import { VideoHero } from "@/components/video-hero";
 import { SparkleButton } from "@/components/ui/sparkle-button";
-import { WaitlistForm } from "@/components/waitlist-form";
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Users, Sparkles, Award, TrendingUp, Zap, Heart } from "lucide-react";
 
 export default function Home() {
-  const scrollToWaitlist = () => {
-    const waitlist = document.querySelector('footer');
-    waitlist?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const scrollToCTA = () => {
+    const cta = document.getElementById('cta-section');
+    cta?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   const features = [
@@ -109,24 +109,18 @@ export default function Home() {
             L&apos;unica piattaforma che premia la tua vita sociale. Non guardare gli eventi, vivili.
           </p>
 
-          {/* CTA Buttons - 3 Choice Options */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-            <SparkleButton variant="primary" size="lg" onClick={scrollToWaitlist}>
+          {/* Single CTA Button - Scrolls to choice section */}
+          <div className="flex justify-center items-center mt-8">
+            <SparkleButton variant="primary" size="lg" onClick={scrollToCTA}>
               <Sparkles className="w-5 h-5" />
-              Cosa fare stasera?
-            </SparkleButton>
-            <SparkleButton variant="secondary" size="lg" onClick={scrollToWaitlist}>
-              Organizzo Eventi
-            </SparkleButton>
-            <SparkleButton variant="secondary" size="lg" onClick={scrollToWaitlist}>
-              Voglio collaborare
+              Scopri di più
             </SparkleButton>
           </div>
         </div>
       </VideoHero>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-charcoal-900">
+      <section className="py-20 px-4 bg-muted">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold text-center mb-4">
             Why <span className="text-primary" translate="no">CROWDIA</span>?
@@ -168,7 +162,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
             {/* Step 1 */}
             <div className="text-center relative">
-              <div className="w-20 h-20 rounded-full bg-magenta-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
                 <span className="font-montserrat text-3xl font-bold">1</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">
@@ -182,7 +176,7 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="text-center relative">
-              <div className="w-20 h-20 rounded-full bg-magenta-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
                 <span className="font-montserrat text-3xl font-bold">2</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">
@@ -196,7 +190,7 @@ export default function Home() {
 
             {/* Step 3 */}
             <div className="text-center relative">
-              <div className="w-20 h-20 rounded-full bg-magenta-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
                 <span className="font-montserrat text-3xl font-bold">3</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">Earn</h3>
@@ -209,46 +203,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof / Vision Section */}
-      <section className="py-20 px-4 bg-charcoal-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">
-            Join the <span className="text-primary">Movement</span>
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            We&apos;re building more than an app—we&apos;re creating a new way to
-            experience your city. Starting with Palermo, expanding everywhere.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="p-6 rounded-xl bg-card border-2 border-primary/30">
-              <div className="text-4xl font-montserrat font-bold text-primary mb-2">
-                50K+
-              </div>
-              <p className="text-muted-foreground">Users Expected Year 1</p>
-            </div>
-            <div className="p-6 rounded-xl bg-card border-2 border-primary/30">
-              <div className="text-4xl font-montserrat font-bold text-primary mb-2">
-                10+
-              </div>
-              <p className="text-muted-foreground">Cities in Pipeline</p>
-            </div>
-            <div className="p-6 rounded-xl bg-card border-2 border-primary/30">
-              <div className="text-4xl font-montserrat font-bold text-primary mb-2">
-                24/7
-              </div>
-              <p className="text-muted-foreground">Real-Time Updates</p>
-            </div>
-          </div>
-          <SparkleButton variant="primary" size="lg" onClick={scrollToWaitlist}>
-            <Sparkles className="w-5 h-5" />
-            Get Early Access
-          </SparkleButton>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <footer className="py-16 px-4 bg-charcoal-950 border-t-2 border-magenta-500/20">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+      {/* CTA Section with Choice Buttons */}
+      <section id="cta-section" className="py-20 px-4 bg-background border-t-2 border-primary/20">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
           <div className="relative w-16 h-16 mx-auto group cursor-pointer">
             {/* Animated glow background */}
             <div className="absolute inset-0.5 rounded-full bg-primary/8 blur-xl animate-glow" style={{ animationDelay: '1s' }} />
@@ -260,17 +217,41 @@ export default function Home() {
               className="object-contain drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)] group-hover:drop-shadow-[0_0_25px_hsl(var(--primary)/0.9)] transition-all duration-500 group-hover:scale-110"
             />
           </div>
-          <h3 className="font-montserrat text-2xl font-bold">
-            Ready to Transform Your City Experience?
+          <h3 className="font-montserrat text-3xl md:text-4xl font-bold">
+            Chi sei?
           </h3>
-          <p className="text-muted-foreground mb-8">
-            Be among the first to experience <span translate="no">CROWDIA</span>. Sign up for early access
-            and exclusive launch perks.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Scegli il tuo percorso e unisciti alla rivoluzione della vita sociale a Palermo.
           </p>
-          <WaitlistForm />
-          <div className="pt-8 text-sm text-gray-500">
-            <p>&copy; 2025 <span translate="no">CROWDIA</span>. All rights reserved.</p>
+
+          {/* Choice Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <Link href="/social">
+              <SparkleButton variant="primary" size="lg">
+                <Sparkles className="w-5 h-5" />
+                Cosa fare stasera?
+              </SparkleButton>
+            </Link>
+            <Link href="/partners">
+              <SparkleButton variant="secondary" size="lg">
+                Organizzo Eventi
+              </SparkleButton>
+            </Link>
+            <Link href="/voices">
+              <SparkleButton variant="secondary" size="lg">
+                Voglio collaborare
+              </SparkleButton>
+            </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 bg-background border-t border-primary/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-sm text-gray-500">
+            &copy; 2025 <span translate="no">CROWDIA</span>. All rights reserved.
+          </p>
         </div>
       </footer>
     </main>

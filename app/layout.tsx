@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   publisher: "CROWDIA",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "it_IT",
     url: "https://crowdia.app",
     title: "CROWDIA - Discover Your City's Social Scene",
     description:
@@ -98,11 +99,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="it" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${inter.variable} font-inter antialiased bg-charcoal-900 text-white`}
+        className={`${montserrat.variable} ${inter.variable} font-inter antialiased`}
       >
-        {children}
+        <ThemeProvider defaultTheme="system">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
