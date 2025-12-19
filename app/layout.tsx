@@ -19,21 +19,21 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://crowdia.app'),
-  title: "CROWDIA - Discover Your City's Social Scene",
+  title: "CROWDIA - Scopri la Scena Sociale della Tua Città",
   description:
-    "Transform the way you discover and experience events in your city. CROWDIA is your social concierge for nightlife, entertainment, and networking. Join the waitlist now.",
+    "Trasforma il modo in cui scopri e vivi gli eventi nella tua città. CROWDIA è il tuo concierge sociale per la vita notturna, l'intrattenimento e il networking. Unisciti alla lista d'attesa ora.",
   keywords: [
-    "events",
-    "nightlife",
-    "social",
-    "entertainment",
-    "discover events",
-    "city life",
-    "event discovery",
+    "eventi",
+    "vita notturna",
+    "sociale",
+    "intrattenimento",
+    "scopri eventi",
+    "vita cittadina",
+    "scoperta eventi",
     "Palermo",
-    "Italy",
-    "social platform",
-    "event app",
+    "Italia",
+    "piattaforma sociale",
+    "app eventi",
   ],
   authors: [{ name: "CROWDIA" }],
   creator: "CROWDIA",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "it_IT",
     url: "https://crowdia.app",
-    title: "CROWDIA - Discover Your City's Social Scene",
+    title: "CROWDIA - Scopri la Scena Sociale della Tua Città",
     description:
-      "Your social concierge for nightlife, entertainment, and networking. Launching soon in Palermo.",
+      "Il tuo concierge sociale per la vita notturna, l'intrattenimento e il networking. In arrivo presto a Palermo.",
     siteName: "CROWDIA",
     images: [
       {
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CROWDIA - Discover Your City's Social Scene",
+    title: "CROWDIA - Scopri la Scena Sociale della Tua Città",
     description:
-      "Your social concierge for nightlife, entertainment, and networking. Launching soon.",
+      "Il tuo concierge sociale per la vita notturna, l'intrattenimento e il networking. In arrivo presto.",
     images: ["/crowdia-logo-icon-transparent.png"],
   },
   robots: {

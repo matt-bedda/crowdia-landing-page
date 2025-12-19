@@ -17,7 +17,7 @@ import { useState } from "react";
 import { Sparkles, Loader2 } from "lucide-react";
 
 const baseFormSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().email("Inserisci un indirizzo email valido"),
   name: z.string(),
 });
 
@@ -28,7 +28,7 @@ const getFormSchema = (emailOnly: boolean) => {
     return baseFormSchema;
   }
   return baseFormSchema.extend({
-    name: z.string().min(2, "Name must be at least 2 characters"),
+    name: z.string().min(2, "Il nome deve contenere almeno 2 caratteri"),
   });
 };
 
@@ -39,7 +39,7 @@ interface WaitlistFormProps {
   emailOnly?: boolean;
 }
 
-export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main", glowButton = false, emailOnly = false }: WaitlistFormProps) {
+export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", source = "main", glowButton = false, emailOnly = false }: WaitlistFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -70,7 +70,7 @@ export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main"
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || 'Failed to join waitlist. Please try again.');
+        setError(data.error || 'Impossibile unirsi alla lista d\'attesa. Riprova.');
         return;
       }
 
@@ -81,7 +81,7 @@ export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main"
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
-      setError('An unexpected error occurred. Please try again.');
+      setError('Si è verificato un errore imprevisto. Riprova.');
     } finally {
       setIsSubmitting(false);
     }
@@ -97,10 +97,10 @@ export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main"
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Name</FormLabel>
+                  <FormLabel className="text-white">Nome</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Your name"
+                      placeholder="Il tuo nome"
                       className="bg-input border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary"
                       {...field}
                     />
@@ -120,7 +120,7 @@ export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main"
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="tua@email.com"
                     className="bg-input border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary"
                     {...field}
                   />
@@ -138,7 +138,7 @@ export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main"
             {isSubmitting ? (
               <>
                 <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                Joining...
+                Iscrizione in corso...
               </>
             ) : (
               <>
@@ -157,10 +157,10 @@ export function WaitlistForm({ buttonText = "Join the Waitlist", source = "main"
           {isSuccess && (
             <div className="p-4 rounded-lg bg-primary/10 border border-primary/30 text-center">
               <p className="text-primary font-semibold">
-                🎉 Success! You&apos;re on the waitlist!
+                🎉 Successo! Sei nella lista d&apos;attesa!
               </p>
               <p className="text-sm text-gray-400 mt-1">
-                We&apos;ll notify you when we launch.
+                Ti avviseremo quando lanceremo.
               </p>
             </div>
           )}
