@@ -4,58 +4,13 @@ import { VideoHero } from "@/components/video-hero";
 import { SparkleButton } from "@/components/ui/sparkle-button";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Users, Sparkles, Award, TrendingUp, Zap, Heart } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function Home() {
   const scrollToCTA = () => {
     const cta = document.getElementById('cta-section');
     cta?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
-
-  const features = [
-    {
-      icon: MapPin,
-      title: "Real-Time Discovery",
-      description: "Find events happening right now around you. No more FOMO—see what's live, trending, and nearby in real time.",
-      hidden: false
-    },
-    {
-      icon: Users,
-      title: "Social by Design",
-      description: "Connect with friends, discover mutual interests, and build your social network through shared experiences.",
-      hidden: false
-    },
-    {
-      icon: Heart,
-      title: "Real-Life Connections",
-      description: "We're building a social app that rewards you for living your best life. Connect with your community, build real relationships, and make memories offline.",
-      hidden: false
-    },
-    {
-      icon: Sparkles,
-      title: "Gamified Engagement",
-      description: "Earn points and rewards for attending events, sharing experiences, and bringing friends. Your social life, rewarded.",
-      hidden: false
-    },
-    {
-      icon: TrendingUp,
-      title: "Organizer Tools",
-      description: "Integrated marketing tools, direct access to influencers, and direct access to your audience. Promote your events effortlessly.",
-      hidden: false
-    },
-    {
-      icon: Award,
-      title: "Influencer Hub",
-      description: "For influencers and PRs: monetize your reach, promote events, and grow your following with our verified membership system.",
-      hidden: false
-    },
-    {
-      icon: Zap,
-      title: "Instant Everything",
-      description: "Buy tickets instantly with our in-app payment system. Seamless crypto-to-fiat conversion—you won't even notice it's Web3.",
-      hidden: true
-    },
-  ];
 
   return (
     <main className="min-h-screen">
@@ -119,44 +74,15 @@ export default function Home() {
         </div>
       </VideoHero>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-montserrat text-4xl md:text-5xl font-bold text-center mb-4">
-            Why <span className="text-primary" translate="no">CROWDIA</span>?
-          </h2>
-          <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            We&apos;re not just another event app. We&apos;re building a community-driven
-            platform that rewards you for living your best life.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.filter(f => !f.hidden).map((feature, index) => (
-              <div key={index} className="group p-6 rounded-2xl bg-card border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
-                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow">
-                  <feature.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="font-montserrat text-xl font-bold mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* How It Works Section */}
       <section className="py-20 px-4 bg-card">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold text-center mb-4">
-            How It <span className="text-primary">Works</span>
+            Come <span className="text-primary">Funziona</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Getting started is simple. Here&apos;s how <span translate="no">CROWDIA</span> transforms your social
-            experience.
+            Iniziare è semplice. Ecco come <span translate="no">CROWDIA</span> trasforma la tua
+            esperienza sociale.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
@@ -166,11 +92,11 @@ export default function Home() {
                 <span className="font-montserrat text-3xl font-bold">1</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">
-                Discover
+                Scopri
               </h3>
               <p className="text-muted-foreground">
-                Open the app and see what&apos;s happening around you right now. Filter
-                by vibe, venue, or friends.
+                Apri l&apos;app e guarda cosa sta succedendo intorno a te in questo momento. Filtra
+                per atmosfera, locale o amici.
               </p>
             </div>
 
@@ -180,11 +106,11 @@ export default function Home() {
                 <span className="font-montserrat text-3xl font-bold">2</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">
-                Connect
+                Connetti
               </h3>
               <p className="text-muted-foreground">
-                RSVP, buy tickets, or invite friends. Check in when you arrive and
-                share your experience.
+                Conferma la partecipazione, acquista biglietti o invita amici. Fai check-in quando arrivi e
+                condividi la tua esperienza.
               </p>
             </div>
 
@@ -193,10 +119,10 @@ export default function Home() {
               <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
                 <span className="font-montserrat text-3xl font-bold">3</span>
               </div>
-              <h3 className="font-montserrat text-2xl font-bold mb-3">Earn</h3>
+              <h3 className="font-montserrat text-2xl font-bold mb-3">Guadagna</h3>
               <p className="text-muted-foreground">
-                Get rewarded with points for attending, sharing, and inviting
-                friends. Level up your social game.
+                Vieni premiato con punti per partecipare, condividere e invitare
+                amici. Porta al prossimo livello il tuo gioco sociale.
               </p>
             </div>
           </div>
