@@ -155,7 +155,7 @@ export default function Home() {
             <Link href="/social">
               <SparkleButton variant="primary" size="lg">
                 <Sparkles className="w-5 h-5" />
-                Cero Eventi
+                Cerco Eventi
               </SparkleButton>
             </Link>
             <Link href="/partners">
