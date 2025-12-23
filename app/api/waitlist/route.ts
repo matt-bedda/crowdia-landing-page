@@ -2,26 +2,27 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { z } from 'zod';
 
-const waitlistSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-});
+const emailSchema = z.string().email('Please enter a valid email address');
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    
-    // Validate the request body
-    const validatedData = waitlistSchema.parse(body);
+
+    // Validate email
+    const email = emailSchema.parse(body.email);
+    const name = typeof body.name === 'string' ? body.name : null;
+    const source = typeof body.source === 'string' ? body.source : 'landing-page';
+    const metadata = body.metadata && typeof body.metadata === 'object' ? body.metadata : null;
     
     // Insert into Supabase
     const { data, error } = await supabase
       .from('waitlist')
       .insert([
         {
-          email: validatedData.email,
-          name: validatedData.name,
-          source: 'landing-page',
+          email,
+          name: name || null,
+          source,
+          metadata,
         },
       ])
       .select();

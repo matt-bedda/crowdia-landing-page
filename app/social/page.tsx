@@ -10,7 +10,7 @@ export default function SocialPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section with Video Background */}
-      <VideoHero>
+      <VideoHero allowOverflow>
         {/* Back Button */}
         <Link
           href="/"
@@ -62,7 +62,9 @@ export default function SocialPage() {
 
           {/* Waitlist Form */}
           <div className="mt-12 max-w-md mx-auto">
-            <WaitlistForm buttonText="Entra in Lista d'Attesa" source="social" glowButton={true} emailOnly={true} />
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <WaitlistForm buttonText="Entra in Lista d'Attesa" source="social" glowButton={true} emailOnly={true} />
+            </div>
           </div>
         </div>
       </VideoHero>

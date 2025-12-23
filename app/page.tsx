@@ -109,7 +109,7 @@ export default function Home() {
                 Connetti
               </h3>
               <p className="text-muted-foreground">
-                Conferma la partecipazione, acquista biglietti o invita amici. Fai check-in quando arrivi e
+                Conferma la partecipazione o invita amici. Fai check-in quando arrivi e
                 condividi la tua esperienza.
               </p>
             </div>

@@ -49,7 +49,7 @@ export default function VoicesPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section with Video Background */}
-      <VideoHero>
+      <VideoHero allowOverflow>
         {/* Back Button */}
         <Link
           href="/"
@@ -95,7 +95,7 @@ export default function VoicesPage() {
 
           {/* Body Text */}
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Sei un PR, un Creator o un punto di riferimento per la tua community? Unisciti al programma Voices. Ottieni budget, accessi backstage e contatto diretto con i founder.
+            Sei un PR, un Creator, un Influencer, o un punto di riferimento per la tua community? Unisciti al programma Voices. Ottieni budget, accessi backstage e contatto diretto con i founder.
           </p>
 
           {/* Application Form */}
@@ -141,7 +141,7 @@ export default function VoicesPage() {
                     >
                       <option value="" className="bg-charcoal-900">Seleziona...</option>
                       <option value="promoter" className="bg-charcoal-900">Promoter</option>
-                      <option value="creator" className="bg-charcoal-900">Creator</option>
+                      <option value="creator" className="bg-charcoal-900">Creator/Influencer</option>
                       <option value="altro" className="bg-charcoal-900">Altro</option>
                     </select>
                   </div>

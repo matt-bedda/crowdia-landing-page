@@ -103,7 +103,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${inter.variable} font-inter antialiased`}
       >
-        <ThemeProvider defaultTheme="system">
+        <ThemeProvider defaultTheme="dark">
           {children}
         </ThemeProvider>
       </body>

@@ -1,0 +1,109 @@
+[
+  // Unbind Ctrl+Alt+Left/Right
+  {
+    "key": "ctrl+alt+left",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "-"
+  },
+  // Unbind Ctrl+Alt+0 through Ctrl+Alt+9
+  {
+    "key": "ctrl+alt+0",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+1",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+2",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+3",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+4",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+5",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+6",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+7",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+8",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+alt+9",
+    "command": "-"
+  },
+  // Unbind Ctrl+Shift+Alt+Left/Right
+  {
+    "key": "ctrl+shift+alt+left",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+right",
+    "command": "-"
+  },
+  // Unbind Ctrl+Shift+Alt+0 through Ctrl+Shift+Alt+9
+  {
+    "key": "ctrl+shift+alt+0",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+1",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+2",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+3",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+4",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+5",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+6",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+7",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+8",
+    "command": "-"
+  },
+  {
+    "key": "ctrl+shift+alt+9",
+    "command": "-"
+  }
+]
+
+
+
+
+
+
+

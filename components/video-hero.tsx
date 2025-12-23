@@ -3,7 +3,12 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
-export function VideoHero({ children }: { children?: React.ReactNode }) {
+interface VideoHeroProps {
+  children?: React.ReactNode;
+  allowOverflow?: boolean;
+}
+
+export function VideoHero({ children, allowOverflow = false }: VideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -29,7 +34,7 @@ export function VideoHero({ children }: { children?: React.ReactNode }) {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className={`relative w-full ${allowOverflow ? 'min-h-screen overflow-y-auto' : 'h-screen overflow-hidden'}`}>
       {/* Fallback Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-black">
         {/* Animated gradient overlay */}
@@ -57,7 +62,7 @@ export function VideoHero({ children }: { children?: React.ReactNode }) {
       <div className="absolute inset-0 bg-black/65 md:bg-black/70 lg:bg-black/80 z-20" />
 
       {/* Content Overlay */}
-      <div className="relative z-30 flex flex-col items-center justify-center h-full text-center px-4">
+      <div className={`relative z-30 flex flex-col items-center text-center px-4 ${allowOverflow ? 'min-h-screen py-8' : 'justify-center h-full'}`}>
         {children}
       </div>
     </section>
