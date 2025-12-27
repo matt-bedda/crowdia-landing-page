@@ -9,7 +9,7 @@ import { ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
 
 export default function PartnersPage() {
   const [formData, setFormData] = useState({
-    localeName: "",
+    organizationName: "",
     instagramLink: "",
     phone: "",
   });
@@ -29,7 +29,7 @@ export default function PartnersPage() {
         body: JSON.stringify({
           source: "partners",
           metadata: {
-            localeName: formData.localeName,
+            organizationName: formData.organizationName,
             instagramLink: formData.instagramLink,
             phone: formData.phone,
           },
@@ -107,15 +107,15 @@ export default function PartnersPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="localeName" className="block text-left font-inter font-medium text-white mb-2">
+                  <label htmlFor="organizationName" className="block text-left font-inter font-medium text-white mb-2">
                     Nome Organizzazione*
                   </label>
                   <input
                     type="text"
-                    id="localeName"
+                    id="organizationName"
                     required
-                    value={formData.localeName}
-                    onChange={(e) => setFormData({ ...formData, localeName: e.target.value })}
+                    value={formData.organizationName}
+                    onChange={(e) => setFormData({ ...formData, organizationName: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-white/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-white bg-white/10 backdrop-blur-sm placeholder:text-gray-400"
                     placeholder="Il tuo nome o brand"
                   />
