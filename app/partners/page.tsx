@@ -27,7 +27,6 @@ export default function PartnersPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: `partner-${Date.now()}@crowdia.app`,
           source: "partners",
           metadata: {
             localeName: formData.localeName,

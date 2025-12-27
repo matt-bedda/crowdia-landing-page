@@ -27,7 +27,6 @@ export default function VoicesPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: `voice-${Date.now()}@crowdia.app`,
           source: "voices",
           metadata: {
             socialLink: formData.socialLink,

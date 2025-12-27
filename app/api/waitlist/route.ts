@@ -2,14 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { z } from 'zod';
 
-const emailSchema = z.string().email('Please enter a valid email address');
+const emailSchema = z.string().email('Please enter a valid email address').optional();
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    // Validate email
-    const email = emailSchema.parse(body.email);
+    // Validate email (optional)
+    const email = body.email ? emailSchema.parse(body.email) : null;
     const name = typeof body.name === 'string' ? body.name : null;
     const source = typeof body.source === 'string' ? body.source : 'landing-page';
     const metadata = body.metadata && typeof body.metadata === 'object' ? body.metadata : null;
